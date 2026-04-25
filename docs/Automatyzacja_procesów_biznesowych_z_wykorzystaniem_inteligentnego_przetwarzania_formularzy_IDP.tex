@@ -1,0 +1,192 @@
+\documentclass[11pt]{beamer}
+
+\usepackage[utf8]{inputenc}   
+\usepackage[T1]{fontenc}     
+\usepackage[polish]{babel}   
+
+\graphicspath{{Images/}{./}} 
+\usepackage{booktabs} 
+\usetheme{Warsaw}
+\useinnertheme{circles}
+\usepackage{palatino} 
+\usepackage[default]{opensans} 
+
+
+
+
+\title[Automatyzacja procesów biznesowych z IDP]{Automatyzacja procesów biznesowych z wykorzystaniem inteligentnego przetwarzania formularzy IDP}
+
+\author[Demski, Dziubich, Formela]{
+    Paweł Demski \and 
+    Paweł Dziubich \and 
+    Mateusz Formela
+}
+
+\institute[PG]{
+    Promotor: dr inż. Krzysztof Bikonis\\
+    \smallskip 
+    \textit{Ktedra Systemów Geoinformatycznych}
+}
+
+\date{\today}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+% \begin{frame}
+%     \frametitle{Plan prezentacji}
+%     \tableofcontents
+% \end{frame}
+
+%----------------------------------------------------------------------------------------
+\section{Cel i Założenia}
+%----------------------------------------------------------------------------------------
+
+
+\begin{frame}
+    \frametitle{Cel pracy – Kontekst: Technologia IDP}
+    \textbf{Inteligentne Przetwarzanie Dokumentów (IDP)} to technologia AI automatyzująca analizę i ekstrakcję danych z dokumentów (faktury, umowy, skany).
+    
+    \bigskip
+    \begin{itemize}
+        \item \textbf{Fundamenty:} Wykorzystanie OCR (Optical Character Recognition), NLP (Natural Language Processing ) oraz ML (Machine learning).
+        \item \textbf{Działanie:} Przekształcanie nieustrukturyzowanego chaosu w uporządkowane dane gotowe dla systemów ERP/CRM.
+        \item \textbf{Korzyści:} Zrozumienie kontekstu (nawet notatek odręcznych), usprawnienie procesów biznesowych i redukcja pracy ręcznej.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Cel pracy – Zadania projektowe}
+    Głównym celem pracy jest \textbf{wdrożenie chmurowe oprogramowania BPM}(Business Process Management) oraz jego adaptacja do wybranej dziedziny (np. administracji).
+    
+    \bigskip
+    \begin{block}{Zakres realizacji}
+        \begin{itemize}
+            \item \textbf{Modelowanie:} Zaprojektowanie procesu biznesowego opartego na IDP.
+            \item \textbf{Integracja (V)LLM:} Wybór i wdrożenie modelu klasy Vision Large Language Model do przetwarzania danych niestrukturyzowanych.
+            \item \textbf{Ewaluacja:} Ocena jakościowa i wydajnościowa stworzonego rozwiązania.
+        \end{enumerate}
+    \end{block}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\section{Koncepcja Rozwiązania}
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Koncepcja CloudIDP Flow}
+    Projekt to chmurowa platforma automatyzacji procesów biznesowych (BPM) zintegrowana z modułem Inteligentnego Przetwarzania Dokumentów (IDP).
+
+    \bigskip
+    \begin{itemize}
+        \item \textbf{Adresowany problem:} Ręczne, czasochłonne i podatne na błędy wprowadzanie danych z nieustrukturyzowanych dokumentów.
+        \item \textbf{Podejście Low-code/No-code:} Intuicyjne środowisko graficzne pozwalające analitykom biznesowym na samodzielne modelowanie procesów bez umiejętności programistycznych.
+        \item \textbf{Automatyzacja decyzji:} Wykorzystanie dużych modeli językowych do podejmowania prostych decyzji na podstawie wyekstrahowanych danych.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Użytkownicy i ich role}
+    Platforma definiuje dwa główne typy interakcji:
+    
+    \begin{columns}[t]
+        \begin{column}{0.45\textwidth}
+            \textbf{Analitycy Biznesowi}
+            \begin{itemize}
+                \item Projektowanie przepływów pracy (Citizen Developers).
+                \item Konfiguracja modułu IDP i mapowanie danych do systemów ERP/CRM.
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            \textbf{Pracownicy Administracji}
+            \begin{itemize}
+                \item Nadzór nad procesem i zatwierdzanie danych w przypadku niskiej pewności modelu.
+                \item Korzystanie z ustrukturyzowanych informacji w systemach docelowych.
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\section{Architektura Systemu}
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Architektura Systemu}
+    \begin{itemize}
+        \item \textbf{Środowisko chmurowe:} Skalowalne rozwiązanie BPM wdrożone w infrastrukturze chmurowej (np. AWS, Azure).
+        \item \textbf{Integracja (V)LLM:} Wykorzystanie modeli Vision Large Language Model do wielwymiarowej analizy i ekstrakcji danych.
+        \item \textbf{Ekosystem integracyjny:} 
+        \begin{itemize}
+            \item Współpraca z zewnętrznymi systemami ERP/CRM klienta.
+            \item Wykorzystanie usług katalogowych do uwierzytelniania.
+            \item Bezpieczeństwo danych zgodnie z wymogami RODO.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+\section{Technologie}
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Wykorzystywane Technologie}
+    \begin{table}
+        \begin{tabular}{l l}
+            \toprule
+            \textbf{Warstwa} & \textbf{Technologia / Narzędzie} \\
+            \midrule
+            Middleware / BPM & n8n / Camunda \\
+            AI / IDP & Modele (V)LLM (OCR, NLP, ML)  \\
+            Infrastruktura & AWS / Azure / TASKCloud  \\
+            Integracje & Python / Node.js \\
+            Współdzielenie kodu & Git / GitHub  \\
+            CI/CD i Testy & GitHub Actions / Postman  \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+\end{frame}
+%----------------------------------------------------------------------------------------
+\section{Status i Harmonogram}
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+    \frametitle{Aktualny stan prac}
+    \begin{itemize}
+        \item \textbf{Research:} 
+        \item \textbf{Design:} 
+        \item \textbf{Prototypowanie:} 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Harmonogram prac}
+    \small 
+    \begin{itemize}
+        \setlength\itemsep{0.8em} 
+        \item \textbf{Marzec:} Zapoznanie się z dziedziną pracy
+        \item \textbf{Kwiecień -- Maj:} Przegląd literatury przedmiotu i selekcja kluczowego procesu
+        \item \textbf{Czerwiec -- Lipiec:} Przygotowanie środowiska do przeprowadzenia eksperymentów
+        \item \textbf{Sierpień -- Wrzesień:} Wdrożenie pilotażowe zautomatyzowanego procesu opartego na IDP
+        \item \textbf{Październik -- Grudzień:} Badanie oraz ocena wdrożonych usprawnień
+        \item \textbf{Grudzień:} Redakcja pracy
+    \end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+% \begin{frame}[plain]
+%     \begin{center}
+%         {\Huge Koniec}
+%         \bigskip\bigskip
+%         {\LARGE Pytania i komentarze?}
+%     \end{center}
+% \end{frame}
+
+\end{document}
